@@ -56,13 +56,13 @@ async function runCheckAndHold() {
             : [];
         const totalFree = allAvailableSeats.length;
 
-        logger.info(`Tổng ghế trống toàn xe: ${totalFree} | Ngưỡng kích hoạt giữ ghế: > ${config.minSeatsToHold}`);
+        logger.info(`Tổng ghế trống toàn xe: ${totalFree} | Ngưỡng kích hoạt giữ ghế: >= ${config.minSeatsToHold}`);
 
-        if (totalFree <= config.minSeatsToHold) {
+        if (totalFree < config.minSeatsToHold) {
             const watchMsg =
                 `👀 Theo dõi ghế — Chuyến xe ID: ${config.tripId}\n` +
                 `🪑 Ghế trống hiện tại: ${totalFree} ghế [${allAvailableSeats.join(', ')}]\n` +
-                `⚠️ Chưa đủ điều kiện giữ (cần > ${config.minSeatsToHold} ghế trống). Bỏ qua chu kỳ này.`;
+                `⚠️ Chưa đủ điều kiện giữ (cần >= ${config.minSeatsToHold} ghế trống). Bỏ qua chu kỳ này.`;
             logger.info(watchMsg);
             await notify('THEO DÕI GHẾ', watchMsg);
             logger.separator();
@@ -118,7 +118,7 @@ if (isOnce) {
 } else {
     logger.separator('═');
     logger.info(`🤖 Seat Bot khởi động  |  Trip: ${config.tripId}  |  Số ghế muốn giữ: ${config.seatCount} (random)`);
-    logger.info(`⏱  Cron: ${config.cronInterval}  |  Ngưỡng giữ ghế: > ${config.minSeatsToHold} ghế trống`);
+    logger.info(`⏱  Cron: ${config.cronInterval}  |  Ngưỡng giữ ghế: >= ${config.minSeatsToHold} ghế trống`);
     logger.separator('═');
 
     // Mở Web Server đơn giản để Render Web Service gọi Health Check & UptimeRobot ping

@@ -32,8 +32,8 @@ module.exports = {
     holdStrategy: dataConfig.holdStrategy || "all_or_any",
     cronInterval: process.env.CRON_INTERVAL || dataConfig.cronInterval || "*/5 * * * *",
     // Số ghế trống toàn xe TỐI THIỂU để kích hoạt giữ ghế.
-    // Nếu ghế trống <= minSeatsToHold → chỉ theo dõi, KHÔNG giữ.
-    // Nếu ghế trống >  minSeatsToHold → tiến hành giữ ghế.
+    // Nếu ghế trống <  minSeatsToHold → chỉ theo dõi, KHÔNG giữ.
+    // Nếu ghế trống >= minSeatsToHold → tiến hành giữ ghế.
     minSeatsToHold: process.env.MIN_SEATS_TO_HOLD
         ? parseInt(process.env.MIN_SEATS_TO_HOLD, 10)
         : (dataConfig.minSeatsToHold ?? 10),
