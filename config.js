@@ -5,10 +5,10 @@ require('dotenv').config();
 const dataConfigPath = path.join(__dirname, 'data', 'config.json');
 let dataConfig = {
     tripId: 116,
-    seatCount: 3,         // Số ghế muốn giữ (random từ danh sách ghế trống)
+    seatCount: 10,         // Số ghế muốn giữ (random từ danh sách ghế trống)
     holdStrategy: "all_or_any",
     cronInterval: "*/5 * * * *",
-    minSeatsToHold: 4,   // Chỉ giữ ghế khi tổng ghế trống TRÊN XE > giá trị này
+    minSeatsToHold: 10,   // Chỉ giữ ghế khi tổng ghế trống TRÊN XE > giá trị này
     headless: true
 };
 
