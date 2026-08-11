@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const dataConfigPath = path.join(__dirname, 'data', 'config.json');
 let dataConfig = {
-    tripId: 116,
+    tripId: 133,
     seatCount: 10,         // Số ghế muốn giữ (random từ danh sách ghế trống)
     holdStrategy: "all_or_any",
     cronInterval: "*/5 * * * *",
