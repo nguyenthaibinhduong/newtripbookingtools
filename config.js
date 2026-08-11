@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const dataConfigPath = path.join(__dirname, 'data', 'config.json');
 let dataConfig = {
-    tripId: 133,
+    tripId: 900,
     seatCount: 10,         // Số ghế muốn giữ (random từ danh sách ghế trống)
     holdStrategy: "all_or_any",
     cronInterval: "*/5 * * * *",
@@ -24,7 +24,7 @@ if (fs.existsSync(dataConfigPath)) {
 module.exports = {
     tripId: process.env.TRIP_ID
         ? parseInt(process.env.TRIP_ID, 10)
-        : (dataConfig.tripId || 133),
+        : (dataConfig.tripId || 900),
     // Số ghế muốn giữ — sẽ random từ danh sách ghế đang trống
     seatCount: process.env.SEAT_COUNT
         ? parseInt(process.env.SEAT_COUNT, 10)
