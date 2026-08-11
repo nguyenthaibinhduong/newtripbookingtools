@@ -22,7 +22,9 @@ if (fs.existsSync(dataConfigPath)) {
 }
 
 module.exports = {
-    tripId: dataConfig.tripId || 133,
+    tripId: process.env.TRIP_ID
+        ? parseInt(process.env.TRIP_ID, 10)
+        : (dataConfig.tripId || 133),
     // Số ghế muốn giữ — sẽ random từ danh sách ghế đang trống
     seatCount: process.env.SEAT_COUNT
         ? parseInt(process.env.SEAT_COUNT, 10)

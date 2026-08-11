@@ -1,8 +1,8 @@
 {
-  "tripId": 116,
-  "seatCount": 3,
+  "tripId": 133,
+  "seatCount": 10,
   "holdStrategy": "all_or_any",
   "cronInterval": "*/5 * * * *",
-  "minSeatsToHold": 4,
+  "minSeatsToHold": 10,
   "headless": true
 }
