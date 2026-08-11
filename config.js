@@ -22,11 +22,11 @@ if (fs.existsSync(dataConfigPath)) {
 }
 
 module.exports = {
-    tripId: dataConfig.tripId || 116,
+    tripId: dataConfig.tripId || 133,
     // Số ghế muốn giữ — sẽ random từ danh sách ghế đang trống
     seatCount: process.env.SEAT_COUNT
         ? parseInt(process.env.SEAT_COUNT, 10)
-        : (dataConfig.seatCount ?? 3),
+        : (dataConfig.seatCount ?? 10),
     holdStrategy: dataConfig.holdStrategy || "all_or_any",
     cronInterval: process.env.CRON_INTERVAL || dataConfig.cronInterval || "*/5 * * * *",
     // Số ghế trống toàn xe TỐI THIỂU để kích hoạt giữ ghế.
@@ -34,7 +34,7 @@ module.exports = {
     // Nếu ghế trống >  minSeatsToHold → tiến hành giữ ghế.
     minSeatsToHold: process.env.MIN_SEATS_TO_HOLD
         ? parseInt(process.env.MIN_SEATS_TO_HOLD, 10)
-        : (dataConfig.minSeatsToHold ?? 4),
+        : (dataConfig.minSeatsToHold ?? 10),
     headless: process.env.HEADLESS !== undefined ? process.env.HEADLESS === 'true' : dataConfig.headless,
     telegram: {
         botToken: process.env.TELEGRAM_BOT_TOKEN || '',
